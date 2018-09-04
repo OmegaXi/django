@@ -37,8 +37,7 @@ def article_edit_page_action(request):
     return render(request, 'blog/article_page.html', {'article': article})
 
 
-# def article_delete(request):
-#     article_id = request.POST.get('article_id_hidden', '0')  # 获取此文的id
-#     article = models.Article.objects.get(pk=article_id)
-#     article.delete()
-#     return render(request, 'blog/index.html')
+def article_delete(request, article_id):
+    article = models.Article.objects.get(pk=article_id)
+    article.delete()
+    return render(request, 'blog/article_delete.html')
